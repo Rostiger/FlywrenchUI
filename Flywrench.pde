@@ -18,64 +18,7 @@ void setup() {
 	origin = new PVector(width / 2, height / 2, 0);
 
 	// add planets
-	for (int i=0; i<planets.length; i++) {
-		planets[i] = new Planet();
-		planets[i].id = i;
-		planets[i].dst = 67 + 26 * (i+1);
-		planets[i].spd = map(i,0,8,0.5,0.3);
-		planets[i].spd += random(-0.1,0.1);
-		planets[i].rot = map(i,0,8,0,360);
-		planets[i].rot += random(-25.0,25.0);
-
-		if (i<6) {
-			planets[i].descr = "locked";
-		} else {
-			int levels = (int)random(7,30);
-			int completed = (int)random(0,levels);
-			if (levels == completed) planets[i].descr = "completed";
-			else planets[i].descr = str(completed) + " of " + str(levels);
-		}
-
-		switch(i) {
-			case 0:
-				planets[i].name = "Mercury";
-				planets[i].siz = 4;
-			break;
-			case 1:
-				planets[i].name = "venus";
-				planets[i].siz = 5.5;
-			break;
-			case 2:
-				planets[i].name = "earth";
-				planets[i].siz = 4.5;
-			break;
-			case 3:
-				planets[i].name = "mars";
-				planets[i].siz = 3.5;
-			break;
-			case 4:
-				planets[i].name = "jupiter";
-				planets[i].siz = 8;
-			break;
-			case 5:
-				planets[i].name = "saturn";
-				planets[i].siz = 6.7;
-			break;
-			case 6:
-				planets[i].name = "uranus";
-				planets[i].siz = 6.3;
-			break;
-			case 7:
-				planets[i].name = "neptune";
-				planets[i].siz = 6.0;
-			break;
-			case 8:
-				planets[i].name = "pluto";
-				planets[i].siz = 4;
-			break;
-
-		}
-	}
+	for (int i=0; i<planets.length; i++) planets[i] = new Planet(i);
 }
 
 void draw() {
